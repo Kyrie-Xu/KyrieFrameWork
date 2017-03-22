@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<objects xmlns="http://www.springframework.net">
+  <!--<object id="StudentService" type="MyFrameWork.Services.Implement.StudentService, MyFrameWork.Services.Implement"/>-->
+
+
+  <object id="myTypeAlias" type="Spring.Objects.Factory.Config.TypeAliasConfigurer, Spring.Core">
+    <property name="TypeAliases">
+      <dictionary>
+        <entry key="type1" value="MyFrameWork.Models.Student,MyFrameWork.Models"></entry>
+        <!--<entry key="type2" value="spring.net.IModel,spring.net"></entry>-->
+      </dictionary>
+    </property>
+  </object>
+  
+  
+  <object type="MyFrameWork.WebAPI.Controllers.HomeController, MyFrameWork.WebAPI" singleton="false">
+    <property name="StudentManager" ref="StudentManager"/>
+  </object>
+
+  <object type="MyFrameWork.WebAPI.Controllers.StudentController, MyFrameWork.WebAPI" singleton="false">
+    <property name="StudentManager" ref="StudentManager"/>
+    <!--<property name="CrudManager" ref="CrudManager"/>-->
+  </object>
+
+  
+  <object name="StudentManager" type="MyFrameWork.BLL.Implement.StudentManager, MyFrameWork.BLL.Implement" singleton="false" >
+    <property name="StudentDao" ref="StudentDao" />
+    <property name="CrudDao" ref="CrudDao" />
+  </object>
+  <object name="StudentDao" type="MyFrameWork.DAL.Implement.StudentDao, MyFrameWork.DAL.Implement" singleton="false" />
+  
+  <!--<object name="CrudManager" type="MyFrameWork.BLL.Implement.CrudManager&lt;type1>, MyFrameWork.BLL.Implement" singleton="false" >
+    <property name="CrudDao" ref="CrudDao" />
+  </object>-->
+  <object name="CrudDao" type="MyFrameWork.DAL.Implement.CrudDao&lt;type1>, MyFrameWork.DAL.Implement" singleton="false" />
+  
+</objects>

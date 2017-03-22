@@ -1,0 +1,7 @@
+/MyFrameWork.BLL.Implement/bin*
+/MyFrameWork.BLL.Interface/bin*
+/MyFrameWork.DAL.Implement/obj
+/MyFrameWork.DAL.Implement/bin
+*
+/MyFrameWork.BLL.Interface/obj
+/MyFrameWork.BLL.Interface/bin
