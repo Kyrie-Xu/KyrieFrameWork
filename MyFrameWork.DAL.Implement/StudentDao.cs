@@ -10,6 +10,6 @@ namespace MyFrameWork.DAL.Implement
 {
     public class StudentDao : CrudDao<Student> ,IStudentDao
     {
-
+        public StudentDao() { }
     }
 }
