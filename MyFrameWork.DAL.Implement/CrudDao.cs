@@ -11,6 +11,7 @@ namespace MyFrameWork.DAL.Implement
 {
     public class CrudDao<T> : ICrudDao<T> where T : class
     {
+        public CrudDao() { }
 
         MyFrameWorkContext context = new MyFrameWorkContext();   
         public int Add(T entity)
